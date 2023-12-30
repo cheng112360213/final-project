@@ -19,4 +19,9 @@
       <Filter>來源檔案</Filter>
     </ClCompile>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="attack.h">
+      <Filter>資源檔</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

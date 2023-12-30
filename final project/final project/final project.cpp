@@ -1,13 +1,14 @@
 ﻿#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include "attack.h"
 // 定義玩家和敵人的初始生命值
 #define PLAYER_HEALTH 100
 #define ENEMY_HEALTH 100
-
+#define PLAYER_MANA 100
+#define PLAYER_power 0
 // 函數聲明
-void playerTurn(int *enemyHealth);
+
 void enemyTurn(int *playerHealth);
 void victory();
 
@@ -19,13 +20,15 @@ int main()
 	// 初始化玩家和敵人的生命值
 	int playerHealth = PLAYER_HEALTH;
 	int enemyHealth = ENEMY_HEALTH;
-
+	int playerMana = PLAYER_MANA;
+	int playerpower = PLAYER_power;
 	printf("=== 回合制小遊戲 ===\n");
-
+	printf("玩家生命值: %d\t\t敵人生命值: %d\n", playerHealth, enemyHealth);
+	printf("玩家魔力值: %d\t\t玩家大招條: %d\n",playerMana,playerpower);
 	// 遊戲主迴圈
 	while (playerHealth > 0 && enemyHealth > 0) {
 		// 玩家回合
-		playerTurn(&enemyHealth);
+		playerTurn(&enemyHealth,&playerMana,&playerpower);
 
 		// 檢查敵人是否還有生命值
 		if (enemyHealth <= 0) {
@@ -57,8 +60,8 @@ int main()
 		}
 
 		// 顯示玩家和敵人的生命值
-		printf("玩家生命值: %d\n", playerHealth);
-		printf("敵人生命值: %d\n", enemyHealth);
+		printf("玩家生命值: %d\t\t敵人生命值: %d\n", playerHealth,enemyHealth);
+		printf("玩家魔力值: %d\t\t玩家大招條: %d\n", playerMana,playerpower);
 		printf("\n");
 	}
 
@@ -71,30 +74,7 @@ void victory() {
 	// 在這裡可以添加獲得道具的相應處理邏輯
 }
 
-// 玩家回合的函數
-void playerTurn(int *enemyHealth) {
-	printf("輪到你的回合！\n");
-	printf("1. 攻擊\n");
-	printf("2. 防禦\n");
 
-	int choice;
-	scanf("%d", &choice);
-
-	switch (choice) {
-	case 1:
-		// 攻擊，造成隨機傷害
-		printf("你對敵人造成了傷害！\n");
-		*enemyHealth -= rand() % 20 + 10; // 隨機傷害在10到30之間
-		break;
-	case 2:
-		// 防禦，降低敵人的攻擊傷害
-		printf("你進行了防禦！\n");
-		break;
-	default:
-		printf("無效的選擇，請重新選擇。\n");
-		break;
-	}
-}
 
 // 敵人回合的函數
 void enemyTurn(int *playerHealth) {
