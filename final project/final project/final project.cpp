@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include "attack.h"
+#include "victory.h"
+#include "enemyturn.h"
 // 定義玩家和敵人的初始生命值
 #define PLAYER_HEALTH 100
 #define ENEMY_HEALTH 100
@@ -28,7 +30,7 @@ int main()
 	// 遊戲主迴圈
 	while (playerHealth > 0 && enemyHealth > 0) {
 		// 玩家回合
-		playerTurn(&enemyHealth,&playerMana,&playerpower);
+		playerTurn(&playerHealth,&enemyHealth,&playerMana,&playerpower);
 
 		// 檢查敵人是否還有生命值
 		if (enemyHealth <= 0) {
@@ -68,28 +70,9 @@ int main()
 	return 0;
 }
 
-// 勝利時獲得強力道具的函數
-void victory() {
-	printf("恭喜你，你獲得了一個強力道具！\n");
-	// 在這裡可以添加獲得道具的相應處理邏輯
-}
 
 
 
-// 敵人回合的函數
-void enemyTurn(int *playerHealth) {
-	printf("輪到敵人的回合！\n");
 
-	// 敵人隨機選擇動作
-	int action = rand() % 2; // 0表示攻擊，1表示防禦
 
-	if (action == 0) {
-		// 攻擊，造成隨機傷害
-		printf("敵人對你造成了傷害！\n");
-		*playerHealth -= rand() % 15 + 5; // 隨機傷害在5到20之間
-	}
-	else {
-		// 防禦，降低玩家的攻擊傷害
-		printf("敵人進行了防禦！\n");
-	}
-}
+

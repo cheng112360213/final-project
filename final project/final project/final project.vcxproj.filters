@@ -23,5 +23,14 @@
     <ClInclude Include="attack.h">
       <Filter>資源檔</Filter>
     </ClInclude>
+    <ClInclude Include="victory.h">
+      <Filter>資源檔</Filter>
+    </ClInclude>
+    <ClInclude Include="enemyturn.h">
+      <Filter>資源檔</Filter>
+    </ClInclude>
+    <ClInclude Include="no.h">
+      <Filter>資源檔</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
