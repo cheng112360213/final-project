@@ -1,3 +1,4 @@
 ﻿  final project.cpp
-c:\users\za937\onedrive\桌面\final-project\final project\final project\final project.cpp(20): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
-  final project.vcxproj -> C:\Users\za937\OneDrive\桌面\final-project\final project\Debug\final project.exe
+d:\北科大\程式設計\final project\final-project\final-project\final project\final project\victory.h(10): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+d:\北科大\程式設計\final project\final-project\final-project\final project\final project\final project.cpp(20): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+  final project.vcxproj -> D:\北科大\程式設計\final project\final-project\final-project\final project\Debug\final project.exe

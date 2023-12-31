@@ -36,7 +36,7 @@ int main()
 		if (enemyHealth <= 0) {
 			// 顯示勝利訊息
 			printf("你贏了！\n");
-
+			victory();
 			// 提示是否接關
 			printf("是否接關？ (1: 是, 0: 否): ");
 			int continueGame;
