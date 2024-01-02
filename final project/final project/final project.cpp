@@ -2,11 +2,14 @@
 #include <stdlib.h>
 #include <time.h>
 #include "attack.h"
+#include "victory.h"
+#include "enemyturn.h"
 // 定義玩家和敵人的初始生命值
 #define PLAYER_HEALTH 100
 #define ENEMY_HEALTH 100
 #define PLAYER_MANA 100
 #define PLAYER_power 0
+#define DEFENDORNOT 0
 // 函數聲明
 
 void enemyTurn(int *playerHealth);
@@ -14,21 +17,23 @@ void victory();
 
 int main()
 {
+RESTART:
 	// 初始化亂數種子
 	srand(time(NULL));
 
 	// 初始化玩家和敵人的生命值
+	int defendOrNot = DEFENDORNOT;
 	int playerHealth = PLAYER_HEALTH;
 	int enemyHealth = ENEMY_HEALTH;
 	int playerMana = PLAYER_MANA;
 	int playerpower = PLAYER_power;
 	printf("=== 回合制小遊戲 ===\n");
 	printf("玩家生命值: %d\t\t敵人生命值: %d\n", playerHealth, enemyHealth);
-	printf("玩家魔力值: %d\t\t玩家大招條: %d\n",playerMana,playerpower);
+	printf("玩家魔力值: %d\t\t玩家大招條: %d\n", playerMana, playerpower);
 	// 遊戲主迴圈
 	while (playerHealth > 0 && enemyHealth > 0) {
 		// 玩家回合
-		playerTurn(&enemyHealth,&playerMana,&playerpower);
+		playerTurn(&playerHealth, &enemyHealth, &playerMana, &playerpower, &defendOrNot);
 
 		// 檢查敵人是否還有生命值
 		if (enemyHealth <= 0) {
@@ -46,50 +51,36 @@ int main()
 			}
 			else {
 				// 遊戲結束
+				printf("\n玩家選擇了結束遊戲，就跟 他/她 的愛情一樣，一切都結束了。\n\n");
 				break;
 			}
 		}
 
 		// 敵人回合
-		enemyTurn(&playerHealth);
+		enemyTurn(&playerHealth, &defendOrNot);
 
 		// 檢查玩家是否還有生命值
 		if (playerHealth <= 0) {
-			printf("你輸了，遊戲結束。\n");
-			break;
+			printf("\n遊戲結束。~~ 菜就多練，輸不起就別玩。\n");
+			printf("\n是否重新開始？ (1: 是, 0: 否): ");
+			int restart;
+			scanf("%d", &restart);
+			if (restart) {
+				system("cls");
+				goto RESTART;
+			}
+			else {
+				// 遊戲結束
+				printf("\n玩家選擇了逃跑，就跟 他/她 本人一樣，沒有重新開始的勇氣。\n\n");
+				break;
+			}
 		}
 
 		// 顯示玩家和敵人的生命值
-		printf("玩家生命值: %d\t\t敵人生命值: %d\n", playerHealth,enemyHealth);
-		printf("玩家魔力值: %d\t\t玩家大招條: %d\n", playerMana,playerpower);
+		printf("玩家生命值: %d\t\t敵人生命值: %d\n", playerHealth, enemyHealth);
+		printf("玩家魔力值: %d\t\t玩家大招條: %d\n", playerMana, playerpower);
 		printf("\n");
 	}
-
+	system("pause");
 	return 0;
-}
-
-// 勝利時獲得強力道具的函數
-void victory() {
-	printf("恭喜你，你獲得了一個強力道具！\n");
-	// 在這裡可以添加獲得道具的相應處理邏輯
-}
-
-
-
-// 敵人回合的函數
-void enemyTurn(int *playerHealth) {
-	printf("輪到敵人的回合！\n");
-
-	// 敵人隨機選擇動作
-	int action = rand() % 2; // 0表示攻擊，1表示防禦
-
-	if (action == 0) {
-		// 攻擊，造成隨機傷害
-		printf("敵人對你造成了傷害！\n");
-		*playerHealth -= rand() % 15 + 5; // 隨機傷害在5到20之間
-	}
-	else {
-		// 防禦，降低玩家的攻擊傷害
-		printf("敵人進行了防禦！\n");
-	}
 }

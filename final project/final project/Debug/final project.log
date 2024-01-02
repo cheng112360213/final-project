@@ -1,4 +1,4 @@
 ﻿  final project.cpp
-c:\users\za937\onedrive\桌面\final-project\final project\final project\attack.h(35): warning C4553: '==': 未使用運算式結果; 您是否想要 '='?
-c:\users\za937\onedrive\桌面\final-project\final project\final project\final project.cpp(18): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
+c:\users\za937\onedrive\桌面\final-project\final project\final project\attack.h : warning C4819: 檔案含有無法在目前字碼頁 (950) 中表示的字元。請以 Unicode 格式儲存檔案以防止資料遺失
+c:\users\za937\onedrive\桌面\final-project\final project\final project\final project.cpp(22): warning C4244: '引數': 將 'time_t' 轉換為 'unsigned int'，由於類型不同，可能導致資料遺失
   final project.vcxproj -> C:\Users\za937\OneDrive\桌面\final-project\final project\Debug\final project.exe

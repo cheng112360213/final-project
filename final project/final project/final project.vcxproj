@@ -156,6 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="attack.h" />
+    <ClInclude Include="enemyturn.h" />
+    <ClInclude Include="no.h" />
+    <ClInclude Include="victory.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
