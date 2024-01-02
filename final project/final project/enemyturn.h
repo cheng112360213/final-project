@@ -1,15 +1,18 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-void enemyTurn(int *playerHealth, int *defendOrNot)
+void enemyTurn(int *playerHealth, int *defendOrNot, int *bonus)
 {
-
-
+	int d=0;
+	if (*bonus == 2)
+	{
+		d = 1;
+	}
 	printf("輪到敵人的回合！\n");
 	
 	int action = rand() % 2; 
 
-	if (action == 0)
+	if (action == 0 && d != 1)
 	{
 
 		// 攻擊，造成隨機傷害
@@ -27,10 +30,14 @@ void enemyTurn(int *playerHealth, int *defendOrNot)
 
 		
 	}
+	else if (action == 0 && d == 1)
+	{
+		printf("盾牌幫你擋了一刀");
+		d = 0;
+	}
 	else
 	{
-		
-		printf("嚙衝人嚙箠嚙踝蕭F嚙踝蕭嚙練嚙瘢\n");
+		printf("敵人進行了防禦\n");
 	}
 
 }
