@@ -76,21 +76,23 @@ int main()
 				{
 					enemyHealth = playerHealth;
 					playerHealth = ENEMY_HEALTH;
+					a += 1;
 					main();
 				}
 				else
 				{
 					enemyHealth = ENEMY_HEALTH;
+					a += 1;
 					main();
 				}
-				a += 1;
+				
 				
 			}
 			else {
 				// 遊戲結束
 				printf("\n玩家選擇了結束遊戲，就跟 他/她 的愛情一樣，一切都結束了。\n\n");
 				printf("成功次數:%d", a);
-				break;
+				return 0;
 			}
 		}
 

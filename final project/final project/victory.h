@@ -6,8 +6,7 @@ void victory(int *bonus)
 
 	
 	printf("恭喜你，你獲得了一個強力道具！\n\n");
-	printf("經驗值+50\n\n");
-
+	
 	srand(time(NULL));
 	*bonus = rand() % 3 + 1;
 	printf("額外獎勵: ");
