@@ -1,29 +1,29 @@
-#include <stdlib.h>
+﻿#include <stdlib.h>
 #include <stdio.h>
 #include "no.h"
-void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, int *defendOrNot) 
+void playerTurn(int *playerhealth, int *enemyHealth, int *playerMana, int *power, int *defendOrNot)
 {
 	if (*power == 100)
 	{
 		printf("輪到你的回合\n");
-		printf("1. ����\n");
-		printf("2. �ޯ�\n");
-		printf("3. �^�]\n");
+		printf("1. 普攻\n");
+		printf("2. 技能\n");
+		printf("3. 防禦\n");
 		printf("4. 補魔\n");
 		printf("5. 治癒\n");
-		printf("6. �j��\n");
+		printf("6. 大招\n");
 		int choice;
 		scanf("%d", &choice);
 
 		printf("\033[2J");
 		printf("\033[H");
-		printf("=== �^�X��p�C�� ===\n");
+		printf("=== 回合制小遊戲 ===\n");
 
 		switch (choice) {
 		case 1:
 			if (*playerMana >= 10)
 			{
-				printf("�A��ĤH�y���F�ˮ`�I\n");
+				printf("你使用了普攻\n");
 				*enemyHealth -= rand() % 10 + 5; // �H���ˮ`�b10�줧��
 				*playerMana -= 10;
 				*power += 10;
@@ -40,7 +40,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 		case 2:
 			if (*playerMana >= 30)
 			{
-				printf("�A�ϥΤF�ޯ�I\n");
+				printf("你使用了技能\n");
 				*enemyHealth -= rand() % 20 + 15;
 				*playerMana -= 30;
 				*power += 20;
@@ -54,7 +54,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 				playerTurn(playerhealth, enemyHealth, playerMana, power, defendOrNot);
 				break;
 			}
-			
+
 		case 3:
 			if (*playerMana >= 20)
 			{
@@ -71,7 +71,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 				playerTurn(playerhealth, enemyHealth, playerMana, power, defendOrNot);
 				break;
 			}
-		
+
 		case 4:
 			*playerMana += 30;
 			if (*playerMana > 100)
@@ -97,7 +97,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 		case 6:
 			if (*power == 100 && *playerMana >= 70)
 			{
-				printf("�A�ϥΤF�j�ۡI\n");
+				printf("你使用了大招\n");
 				*enemyHealth -= rand() % 11 + 50;
 				*playerMana -= 70;
 				*power = 0;
@@ -116,24 +116,25 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 	}
 	else
 	{
-		printf("����A���^�X�I\n");
-		printf("1. ����\n");
-		printf("2. �ޯ�\n");
-		printf("3. �^�]\n");
+		printf("輪到你的回合\n");
+		printf("1. 普攻\n");
+		printf("2. 技能\n");
+		printf("3. 防禦\n");
 		printf("4. 補魔\n");
 		printf("5. 治癒\n");
+
 		int choice;
 		scanf("%d", &choice);
 
 		printf("\033[2J");
 		printf("\033[H");
-		printf("=== �^�X��p�C�� ===\n");
+		printf("=== 回合制小遊戲 ===\n");
 
 		switch (choice) {
 		case 1:
 			if (*playerMana >= 10)
 			{
-				printf("�A��ĤH�y���F�ˮ`�I\n");
+				printf("你使用了普攻\n");
 				*enemyHealth -= rand() % 10 + 5; // �H���ˮ`�b10�줧��
 				*playerMana -= 10;
 				*power += 10;
@@ -150,7 +151,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 		case 2:
 			if (*playerMana >= 30)
 			{
-				printf("�A�ϥΤF�ޯ�I\n");
+				printf("你使用了技能\n");
 				*enemyHealth -= rand() % 20 + 15;
 				*playerMana -= 30;
 				*power += 20;
@@ -164,7 +165,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 				playerTurn(playerhealth, enemyHealth, playerMana, power, defendOrNot);
 				break;
 			}
-			
+
 		case 3:
 			if (*playerMana >= 20)
 			{
@@ -181,7 +182,7 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 				playerTurn(playerhealth, enemyHealth, playerMana, power, defendOrNot);
 				break;
 			}
-		
+
 		case 4:
 			*playerMana += 30;
 			if (*playerMana > 100)
@@ -213,4 +214,4 @@ void playerTurn(int *playerhealth,int *enemyHealth,int *playerMana,int *power, i
 	}
 }
 
-	
+

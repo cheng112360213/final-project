@@ -1,26 +1,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 void enemyTurn(int *playerHealth, int *defendOrNot) {
-	printf("ï¿½ï¿½ï¿½ï¿½Ä¤Hï¿½ï¿½ï¿½^ï¿½Xï¿½I\n");
+	printf("½ü¨ì¼Ä¤Hªº¦^¦X¡I\n");
 
-	// ï¿½Ä¤Hï¿½Hï¿½ï¿½ï¿½ï¿½Ü°Ê§@
-	int action = rand() % 2; // 0ï¿½ï¿½ï¿½Ü§ï¿½ï¿½ï¿½ï¿½A1ï¿½ï¿½ï¿½Ü¨ï¿½ï¿½m
+	// ¼Ä¤HÀH¾÷¿ï¾Ü°Ê§@
+	int action = rand() % 2; // 0ªí¥Ü§ðÀ»¡A1ªí¥Ü¨¾¿m
 
 	if (action == 0) {
-		// ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½yï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½Ë®`
-		printf("ï¿½Ä¤Hï¿½ï¿½Aï¿½yï¿½ï¿½ï¿½Fï¿½Ë®`ï¿½I\n");
+		// §ðÀ»¡A³y¦¨ÀH¾÷¶Ë®`
+		printf("¼Ä¤H¹ï§A³y¦¨¤F¶Ë®`¡I\n");
 		if (*defendOrNot == 1)
 		{
 			*defendOrNot = 0;
 			*playerHealth -= (rand() % 6) + 15;
-		} // ï¿½Hï¿½ï¿½ï¿½Ë®`ï¿½b5ï¿½ï¿½20ï¿½ï¿½ï¿½ï¿½
+		}
 		else
 		{
 			*playerHealth -= (rand() % 6) + 20;
 		}
 	}
 	else {
-		// ï¿½ï¿½ï¿½mï¿½Aï¿½ï¿½ï¿½Cï¿½ï¿½ï¿½aï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë®`
-		printf("ï¿½Ä¤Hï¿½iï¿½ï¿½Fï¿½ï¿½ï¿½mï¿½I\n");
+		// ¨¾¿m¡A­°§Cª±®aªº§ðÀ»¶Ë®`
+		printf("¼Ä¤H¶i¦æ¤F¨¾¿m¡I\n");
 	}
 }
