@@ -17,7 +17,7 @@ void victory();
 
 int main()
 {
-RESTART:
+
 	// 初始化亂數種子
 	srand(time(NULL));
 
@@ -33,11 +33,8 @@ RESTART:
 	// 遊戲主迴圈
 	while (playerHealth > 0 && enemyHealth > 0) {
 		// 玩家回合
-<<<<<<< HEAD
+
 		playerTurn(&playerHealth, &enemyHealth, &playerMana, &playerpower, &defendOrNot);
-=======
-		playerTurn(&playerHealth,&enemyHealth,&playerMana,&playerpower);
->>>>>>> origin/victory
 
 		// 檢查敵人是否還有生命值
 		if (enemyHealth <= 0) {
@@ -71,7 +68,7 @@ RESTART:
 			scanf("%d", &restart);
 			if (restart) {
 				system("cls");
-				goto RESTART;
+				main();
 			}
 			else {
 				// 遊戲結束
@@ -88,8 +85,6 @@ RESTART:
 	system("pause");
 	return 0;
 }
-<<<<<<< HEAD
-=======
 
 
 
@@ -97,4 +92,4 @@ RESTART:
 
 
 
->>>>>>> origin/victory
+
