@@ -12,7 +12,7 @@ void enemyTurn(int *playerHealth, int *defendOrNot, int *bonus)
 	
 	int action = rand() % 2; 
 
-	if (action == 0 && d != 1)
+	if (action == 0 && d == 1)
 	{
 
 		// 攻擊，造成隨機傷害
@@ -32,8 +32,8 @@ void enemyTurn(int *playerHealth, int *defendOrNot, int *bonus)
 	}
 	else if (action == 0 && d == 1)
 	{
-		printf("盾牌幫你擋了一刀");
-		d = 0;
+		printf("盾牌幫你擋了一刀\n");
+		*bonus = 0;
 	}
 	else
 	{
